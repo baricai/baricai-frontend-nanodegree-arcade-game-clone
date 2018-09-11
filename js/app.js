@@ -1,42 +1,42 @@
 // ************** ENEMY ******************************
 
 // Enemies our player must avoid. Sets the random speed that they will be coming in at.
-var Enemy = function(x, y, speed) {
+var Enemy = function(a, b, speed) {
     this.sprite = 'images/enemy-bug.png';
-    this.x = x;
-    this.y = y;
+    this.a = a;
+    this.b = b;
     this.speed = Math.floor((Math.random()* 9) + 1);
 };
 
 // Update the enemy's position, required method for game
 Enemy.prototype.update = function(dt) {
-  this.x += this.speed;
-  if(this.x > 505) {
-    this.x = -100;
+  this.a += this.speed;
+  if(this.a > 505) {
+    this.a = -100;
   }
 };
 
 Enemy.prototype.reset = function(){ //This resets the bugs to keep comin on the screen and random speeds.
-  this.x = x;
+  this.a = a;
   this.speed = Math.floor((Math.random()* 50) + 5);
 };
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
-    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+    ctx.drawImage(Resources.get(this.sprite), this.a, this.b);
 };
 
 // ************** PLAYER ******************************
 //Player functionality, sets the image and their starting position.
-var Player = function(x, y) {
+var thePlayer = function(a, b) {
     this.sprite = 'images/char-pink-girl.png';
-    this.x = 200;
-    this.y = 400;
+    this.a = 200;
+    this.b = 400;
 };
 //This checks for the collision between enemy and player and also alerts them if they reach the water and resets the game.
 Player.prototype.update = function() {
   this.checkCollisions();
 
-  if(this.y < 20){
+  if(this.b < 20){
     swal({
       title: "You Won!",
       text: "Let's play again!",
@@ -47,26 +47,26 @@ Player.prototype.update = function() {
 };
 //Draws the the player on the screen
 Player.prototype.render = function() {
-  ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+  ctx.drawImage(Resources.get(this.sprite), this.a, this.b);
 };
 
 // Player movement keys
 Player.prototype.handleInput = function(keyPress){
   if(keyPress === 'left' && this.x > 0){
-    this.x -= 100;
-  } else if (keyPress === 'right' && this.x < 400) {
-    this.x += 100;
-  } else if(keyPress === 'up' && this.y > 0){
-    this.y -= 85;
-  } else if(keyPress === 'down' && this.y < 380){
-    this.y += 80;
+    this.a -= 100;
+  } else if (keyPress === 'right' && this.a < 400) {
+    this.a += 100;
+  } else if(keyPress === 'up' && this.b > 0){
+    this.b -= 85;
+  } else if(keyPress === 'down' && this.b < 380){
+    this.b += 80;
   }
 };
 
 //This checks for collisions between player and allEnemies.
 Player.prototype.checkCollisions = function() {
   for (i = 0; i < allEnemies.length; i++) {
-    if (this.x < allEnemies[i].x + 50 && this.x + 50 > allEnemies[i].x && this.y < allEnemies[i].y + 30 && this.y + 30 > allEnemies[i].y) {
+    if (this.a < allEnemies[i].a + 50 && this.a + 50 > allEnemies[i].a && this.b < allEnemies[i].b + 30 && this.b + 30 > allEnemies[i].b) {
       this.reset();
     }
   }
@@ -74,8 +74,8 @@ Player.prototype.checkCollisions = function() {
 
 //THis resets the player if there is a collission or if the game is won
 Player.prototype.reset = function() {
-    this.x = 200;
-    this.y = 400;
+    this.a = 200;
+    this.b = 400;
 };
 
 // Now instantiate your objects.
