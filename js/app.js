@@ -12,7 +12,7 @@ var Enemy = function(x, y, movement) {
 
   // Update the enemy's position, required method for game
   // Parameter: dt, a time delta between ticks
-  Enemy.prototype.update = function(dt) {
+  update(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -31,7 +31,7 @@ var Enemy = function(x, y, movement) {
     }
   };
   // Draw the enemy on the screen, required method for game
-  Enemy.prototype.render = function() {
+  render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
 }
