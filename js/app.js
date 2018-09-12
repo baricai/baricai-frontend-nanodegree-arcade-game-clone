@@ -34,7 +34,7 @@ var Enemy = function(x, y, movement) {
   Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
-
+}
 
 
 // Now write your own player class
@@ -83,6 +83,7 @@ update() {
         break;
     }
   };
+}
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
