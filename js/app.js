@@ -49,8 +49,8 @@ var Player = function(x, y, movement) {
   }
   update() {
     // Below code will stop the player from moving off canvas
-    if (this.y > 350) {
-      this.y = 350;
+    if (this.y > 380) {
+      this.y = 380;
     }
 
     if (this.x > 400) {
@@ -89,12 +89,12 @@ var Player = function(x, y, movement) {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-let allEnemies = [];
+var allEnemies = [];
 
 // Position enemies to be created
-let enemyPosition = [50, 135, 220];
-let player = new Player(200, 400, 50);
-let enemy;
+var enemyPosition = [35, 165, 220];
+var player = new Player(200, 380, 50);
+var enemy;
 
 enemyPosition.forEach(function (posY) {
   enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 499));
