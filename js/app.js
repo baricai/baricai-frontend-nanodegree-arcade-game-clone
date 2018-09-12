@@ -26,8 +26,8 @@ var Enemy = function(x, y, movement) {
 
     // check for the collisions
     if (player.x < this.x + 60 && player.x + 37 > this.x && player.y < this.y + 25 && 30 + player.y > this.y) {
-      player.x = 210; 
-      player.y = 350; 
+      player.x = 200; 
+      player.y = 380; 
     }
   };
   // Draw the enemy on the screen, required method for game
@@ -41,7 +41,7 @@ var Enemy = function(x, y, movement) {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Enemy = function(x, y, movement) {
+var Player = function(x, y, movement) {
     this.x = x;
     this.y = y;
     this.movement = movement;
