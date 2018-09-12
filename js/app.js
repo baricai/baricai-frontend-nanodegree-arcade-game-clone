@@ -88,7 +88,7 @@ Player.prototype.update = function() {
         break;
     }
   };
-}
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
