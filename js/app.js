@@ -26,8 +26,8 @@ var Enemy = function(x, y, movement) {
 
     // below code will check for any collisions between player and enemy
     if (player.x < this.x + 60 && player.x + 37 > this.x && player.y < this.y + 25 && 30 + player.y > this.y) {
-      player.x = 200; 
-      player.y = 400; 
+      player.x = 250; 
+      player.y = 350; 
     }
   };
   // Draw the enemy on the screen, required method for game
@@ -48,13 +48,12 @@ var Player = function(x, y, movement) {
     this.sprite = 'images/char-boy.png';
   }
   update() {
-    // Below code will stop the player from moving off canvas
-    if (this.y > 380) {
-      this.y = 380;
+    if (this.y > 360) {
+      this.y = 360;
     }
 
-    if (this.x > 400) {
-      this.x = 400;
+    if (this.x > 410) {
+      this.x = 410;
     }
 
     if (this.x < 0) {
@@ -66,20 +65,20 @@ var Player = function(x, y, movement) {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
 
-  // Maneuver around the board using standard arrow keys OR WASD keys
+  // use arrow keys around
   handleInput(keyPress) {
     switch (keyPress) {
       case 'left':
-        this.x -= this.movement + 50;
+        this.x -= this.movement + 65;
         break;
       case 'up':
-        this.y -= this.movement + 30;
+        this.y -= this.movement + 35;
         break;
       case 'right':
-        this.x += this.movement + 50;
+        this.x += this.movement + 65;
         break;
       case 'down':
-        this.y += this.movement + 30;
+        this.y += this.movement + 35;
         break;
     }
   };
@@ -89,12 +88,11 @@ var Player = function(x, y, movement) {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-let allEnemies = [];
+var allEnemies = [];
 
-// Position enemies to be created
-let enemyPosition = [50, 135, 220];
-let player = new Player(200, 400, 50);
-let enemy;
+var enemyPosition = [70, 150, 225];
+var player = new Player(250, 350, 65);
+var enemy;
 
 enemyPosition.forEach(function (posY) {
   enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 499));
