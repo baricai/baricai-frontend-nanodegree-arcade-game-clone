@@ -20,9 +20,9 @@ var Enemy = function(x, y, movement) {
     this.x += this.movement * dt;
 
     // resets position of enemy to move from left to right when player reaches destination
-    if (this.x > 500) {
-      this.x = -150;
-      this.movement = 150 + Math.floor(Math.random() * 520);
+    if (this.x > 600) {
+      this.x = -125;
+      this.movement = 125 + Math.floor(Math.random() * 520);
     }
 
     // check for the collisions
@@ -32,7 +32,7 @@ var Enemy = function(x, y, movement) {
     }
   };
   // Draw the enemy on the screen, required method for game
-  render() {
+  Enemy.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
 }
