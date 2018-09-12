@@ -1,5 +1,6 @@
 // Enemies our player must avoid
-var Enemy = function(x, y, movement) {
+class Enemy {
+  constructor(x, y, movement) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = x;
@@ -19,15 +20,18 @@ var Enemy = function(x, y, movement) {
     this.x += this.movement * dt;
 
     // resets position of enemy to move from left to right when player reaches destination
-    if (this.x > 560) {
-      this.x = -120;
-      this.movement = 125 + Math.floor(Math.random() * 505);
+    if (this.x > 500) {
+      this.x = -150;
+      this.movement = 150 + Math.floor(Math.random() * 500);
     }
 
     // below code will check for any collisions between player and enemy
-    if (player.x < this.x + 60 && player.x + 37 > this.x && player.y < this.y + 25 && 30 + player.y > this.y) {
-      player.x = 250; 
-      player.y = 350; 
+    if (player.x < this.x + 60 &&
+      player.x + 37 > this.x &&
+      player.y < this.y + 25 &&
+      30 + player.y > this.y) {
+      player.x = 200; // re-aligns position.1
+      player.y = 400; // re-aligns position.2
     }
   };
   // Draw the enemy on the screen, required method for game
@@ -41,19 +45,21 @@ var Enemy = function(x, y, movement) {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function(x, y, movement) {
+class Player {
+  constructor(x, y, movement) {
     this.x = x;
     this.y = y;
     this.movement = movement;
     this.sprite = 'images/char-boy.png';
   }
   update() {
-    if (this.y > 360) {
-      this.y = 360;
+    // Below code will stop the player from moving off canvas
+    if (this.y > 380) {
+      this.y = 380;
     }
 
-    if (this.x > 410) {
-      this.x = 410;
+    if (this.x > 400) {
+      this.x = 400;
     }
 
     if (this.x < 0) {
@@ -65,20 +71,20 @@ var Player = function(x, y, movement) {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
 
-  // use arrow keys around
+  // Maneuver around the board using standard arrow keys OR WASD keys
   handleInput(keyPress) {
     switch (keyPress) {
       case 'left':
-        this.x -= this.movement + 65;
+        this.x -= this.movement + 50;
         break;
       case 'up':
-        this.y -= this.movement + 35;
+        this.y -= this.movement + 30;
         break;
       case 'right':
-        this.x += this.movement + 65;
+        this.x += this.movement + 50;
         break;
       case 'down':
-        this.y += this.movement + 35;
+        this.y += this.movement + 30;
         break;
     }
   };
@@ -88,11 +94,12 @@ var Player = function(x, y, movement) {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-var allEnemies = [];
+let allEnemies = [];
 
-var enemyPosition = [70, 150, 225];
-var player = new Player(250, 350, 50);
-var enemy;
+// Position enemies to be created
+let enemyPosition = [50, 135, 220];
+let player = new Player(200, 400, 50);
+let enemy;
 
 enemyPosition.forEach(function (posY) {
   enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 499));
