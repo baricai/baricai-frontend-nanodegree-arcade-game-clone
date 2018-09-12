@@ -1,6 +1,5 @@
 // Enemies our player must avoid
-class Enemy {
-  constructor(x, y, movement) {
+var Enemy = function(x, y, movement) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = x;
