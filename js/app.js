@@ -91,7 +91,7 @@ var Player = function(x, y, movement) {
 var allEnemies = [];
 
 var enemyPosition = [70, 150, 225];
-var player = new Player(250, 350, 65);
+var player = new Player(250, 350, 50);
 var enemy;
 
 enemyPosition.forEach(function (posY) {
