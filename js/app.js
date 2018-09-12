@@ -27,7 +27,7 @@ var Enemy = function(x, y, movement) {
     // below code will check for any collisions between player and enemy
     if (player.x < this.x + 60 && player.x + 37 > this.x && player.y < this.y + 25 && 30 + player.y > this.y) {
       player.x = 200; 
-      player.y = 360; 
+      player.y = 400; 
     }
   };
   // Draw the enemy on the screen, required method for game
