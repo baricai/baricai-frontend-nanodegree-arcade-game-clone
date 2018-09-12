@@ -12,7 +12,7 @@ var Enemy = function(x, y, movement) {
 
   // Update the enemy's position, required method for game
   // Parameter: dt, a time delta between ticks
-  update(dt) {
+  Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -34,7 +34,7 @@ var Enemy = function(x, y, movement) {
     }
   };
   // Draw the enemy on the screen, required method for game
-  render() {
+  Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
 }
@@ -44,21 +44,20 @@ var Enemy = function(x, y, movement) {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-class Player {
-  constructor(x, y, movement) {
+var Player = function(x, y, movement) {
     this.x = x;
     this.y = y;
     this.movement = movement;
     this.sprite = 'images/char-boy.png';
   }
-  update() {
+  Player.prototype.update = function() {
     
-    if (this.y > 380) {
-      this.y = 380;
+    if (this.y > 360) {
+      this.y = 360;
     }
 
-    if (this.x > 400) {
-      this.x = 400;
+    if (this.x > 420) {
+      this.x = 420;
     }
 
     if (this.x < 0) {
@@ -66,13 +65,11 @@ class Player {
     }
   };
 
-  render() {
+  Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
 
   
-  
-  // Maneuver around the board using standard arrow keys OR WASD keys
   handleInput(keyPress) {
     switch (keyPress) {
       case 'left':
