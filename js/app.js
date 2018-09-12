@@ -41,8 +41,7 @@ var Enemy = function(x, y, movement) {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-class Player {
-  constructor(x, y, movement) {
+var Enemy = function(x, y, movement) {
     this.x = x;
     this.y = y;
     this.movement = movement;
@@ -50,8 +49,8 @@ class Player {
   }
   update() {
     // Below code will stop the player from moving off canvas
-    if (this.y > 380) {
-      this.y = 380;
+    if (this.y > 350) {
+      this.y = 350;
     }
 
     if (this.x > 400) {
