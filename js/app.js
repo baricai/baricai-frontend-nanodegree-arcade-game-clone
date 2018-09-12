@@ -94,12 +94,12 @@ handleInput(keyPress) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-var allEnemies = [];
+let allEnemies = [];
 
 // Position "y" where the enemies will are created
-var enemyPosition = [60, 140, 220];
-var player = new Player(200, 380, 50);
-var enemy;
+let enemyPosition = [60, 140, 220];
+let player = new Player(200, 380, 50);
+let enemy;
 
 enemyPosition.forEach(function(posY) {
     enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 512));
