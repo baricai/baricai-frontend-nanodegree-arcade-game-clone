@@ -47,7 +47,7 @@ var Player = function(x, y, movement) {
     this.sprite = 'images/char-boy.png';
   }
   
-update() {
+Player.prototype.update = function() {
     
     if (this.y > 360) {
       this.y = 360;
@@ -60,9 +60,14 @@ update() {
     if (this.x < 0) {
       this.x = 0;
     }
-  };
+    
+    if (this.y<0) {
+      this.x = 200;
+      this.y = 360;  
+    }
+};
 
-  render() {
+  Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
 
