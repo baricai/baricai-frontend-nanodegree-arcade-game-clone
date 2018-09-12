@@ -47,7 +47,7 @@ var Player = function(x, y, movement) {
     this.movement = movement;
     this.sprite = 'images/char-boy.png';
   }
-  update() {
+  Player.prototype.update = function() {
     // Below code will stop the player from moving off canvas
     if (this.y > 380) {
       this.y = 380;
@@ -62,7 +62,7 @@ var Player = function(x, y, movement) {
     }
   };
 
-  render() {
+  Player.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
 
