@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function(x, y, movement) {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = x;
@@ -13,7 +13,7 @@ var Enemy = function(x, y, movement) {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-  update(dt) {
+Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -36,21 +36,21 @@ var Enemy = function(x, y, movement) {
 };
 
 // Draw the enemy on the screen, required method for game
-render() {
+Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function(x, y, movement) {
+var Player = function(x, y, speed) {
     this.x = x;
     this.y = y;
     this.speed = speed;
     this.sprite = 'images/char-boy.png';
 };
 
-update() {
+Player.prototype.update = function() {
     // Prevent player from moving beyond canvas wall boundaries
     if (this.y > 380) {
         this.y = 380;
@@ -70,11 +70,12 @@ update() {
         this.y = 380;
     }
 };
-render() {
+
+Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-handleInput(keyPress) {
+Player.prototype.handleInput = function(keyPress) {
     switch (keyPress) {
         case 'left':
             this.x -= this.speed + 50;
@@ -94,12 +95,12 @@ handleInput(keyPress) {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-let allEnemies = [];
+var allEnemies = [];
 
 // Position "y" where the enemies will are created
-let enemyPosition = [60, 140, 220];
-let player = new Player(200, 380, 50);
-let enemy;
+var enemyPosition = [60, 140, 220];
+var player = new Player(200, 380, 50);
+var enemy;
 
 enemyPosition.forEach(function(posY) {
     enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 512));
