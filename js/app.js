@@ -53,7 +53,7 @@ class Player {
     this.sprite = 'images/char-boy.png';
   }
   update() {
-    // Below code will stop the player from moving off canvas
+    
     if (this.y > 380) {
       this.y = 380;
     }
@@ -71,20 +71,22 @@ class Player {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
 
+  
+  
   // Maneuver around the board using standard arrow keys OR WASD keys
   handleInput(keyPress) {
     switch (keyPress) {
       case 'left':
-        this.x -= this.movement + 50;
+        this.x -= this.movement + 40;
         break;
       case 'up':
-        this.y -= this.movement + 30;
+        this.y -= this.movement + 20;
         break;
       case 'right':
-        this.x += this.movement + 50;
+        this.x += this.movement + 40;
         break;
       case 'down':
-        this.y += this.movement + 30;
+        this.y += this.movement + 20;
         break;
     }
   };
@@ -94,15 +96,15 @@ class Player {
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
 
-let allEnemies = [];
+var allEnemies = [];
 
-// Position enemies to be created
-let enemyPosition = [50, 135, 220];
-let player = new Player(200, 400, 50);
-let enemy;
+// Position the enemies
+var enemyPosition = [40, 130, 220];
+var player = new Player(200, 400, 50);
+var enemy;
 
 enemyPosition.forEach(function (posY) {
-  enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 499));
+  enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 505));
   allEnemies.push(enemy);
 });
 
