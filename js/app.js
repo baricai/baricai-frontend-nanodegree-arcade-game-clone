@@ -26,8 +26,8 @@ var Enemy = function(x, y, movement) {
 
     // check for the collisions
     if (player.x < this.x + 60 && player.x + 37 > this.x && player.y < this.y + 25 && 30 + player.y > this.y) {
-      player.x = 210; // re-aligns position.1
-      player.y = 350; // re-aligns position.2
+      player.x = 210; 
+      player.y = 350; 
     }
   };
   // Draw the enemy on the screen, required method for game
