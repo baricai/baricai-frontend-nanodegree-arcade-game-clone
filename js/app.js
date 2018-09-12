@@ -70,7 +70,7 @@ var Player = function(x, y, movement) {
   };
 
   
-  handleInput(keyPress) {
+  Player.prototype.handleInput = function(keyPress) {
     switch (keyPress) {
       case 'left':
         this.x -= this.movement + 40;
