@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-class Enemy {
+var Enemy = function(x, y, movement) {
   constructor(x, y, movement) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
@@ -13,7 +13,7 @@ class Enemy {
 
   // Update the enemy's position, required method for game
   // Parameter: dt, a time delta between ticks
-  update(dt) {
+  Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -22,14 +22,11 @@ class Enemy {
     // resets position of enemy to move from left to right when player reaches destination
     if (this.x > 500) {
       this.x = -150;
-      this.movement = 150 + Math.floor(Math.random() * 500);
+      this.movement = 150 + Math.floor(Math.random() * 520);
     }
 
-    // below code will check for any collisions between player and enemy
-    if (player.x < this.x + 60 &&
-      player.x + 37 > this.x &&
-      player.y < this.y + 25 &&
-      30 + player.y > this.y) {
+    // check for the collisions
+    if (player.x < this.x + 60 && player.x + 37 > this.x && player.y < this.y + 25 && 30 + player.y > this.y) {
       player.x = 200; // re-aligns position.1
       player.y = 400; // re-aligns position.2
     }
