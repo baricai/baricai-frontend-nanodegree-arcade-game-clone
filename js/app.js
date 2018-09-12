@@ -21,7 +21,7 @@ var Enemy = function(x, y, movement) {
     // resets position of enemy to move from left to right when player reaches destination
     if (this.x > 500) {
       this.x = -150;
-      this.movement = 150 + Math.floor(Math.random() * 500);
+      this.movement = 150 + Math.floor(Math.random() * 505);
     }
 
     // below code will check for any collisions between player and enemy
@@ -47,7 +47,8 @@ var Player = function(x, y, movement) {
     this.movement = movement;
     this.sprite = 'images/char-boy.png';
   }
-  Player.prototype.update = function() {
+  
+update() {
     
     if (this.y > 360) {
       this.y = 360;
@@ -62,7 +63,7 @@ var Player = function(x, y, movement) {
     }
   };
 
-  Player.prototype.render = function() {
+  render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
 
