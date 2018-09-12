@@ -67,7 +67,7 @@ var Player = function(x, y, movement) {
   };
 
   // Maneuver around the board using standard arrow keys OR WASD keys
-  handleInput(keyPress) {
+  Player.prototype.handleInput = function(keyPress) {
     switch (keyPress) {
       case 'left':
         this.x -= this.movement + 50;
