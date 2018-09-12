@@ -21,14 +21,14 @@ var Enemy = function(x, y, movement) {
 
     // resets position of enemy to move from left to right when player reaches destination
     if (this.x > 600) {
-      this.x = -125;
-      this.movement = 125 + Math.floor(Math.random() * 520);
+      this.x = -100;
+      this.movement = 100 + Math.floor(Math.random() * 520);
     }
 
     // check for the collisions
     if (player.x < this.x + 60 && player.x + 37 > this.x && player.y < this.y + 25 && 30 + player.y > this.y) {
-      player.x = 200; // re-aligns position.1
-      player.y = 400; // re-aligns position.2
+      player.x = 210; // re-aligns position.1
+      player.y = 350; // re-aligns position.2
     }
   };
   // Draw the enemy on the screen, required method for game
