@@ -19,13 +19,12 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += this.movement * dt;
 
-    // when off canvas, reset position of enemy to move across again
     if (this.x > 525) {
         this.x = -100;
         this.speed = 100 + Math.floor(Math.random() * 525);
     }
 
-    // Check for collision between player and enemies
+    // collision player and enemies
     if (player.x < this.x + 60 && player.x + 37 > this.x && player.y < this.y + 25 && 30 + player.y > this.y) {
         player.x = 200;
         player.y = 350;
@@ -48,7 +47,7 @@ var Player = function(x, y, movement) {
 };
 
 Player.prototype.update = function() {
-    // Prevent player from moving beyond canvas wall boundaries
+   
     if (this.y > 350) {
         this.y = 350;
     }
@@ -60,8 +59,7 @@ Player.prototype.update = function() {
     if (this.x < 0) {
         this.x = 0;
     }
-
-    // Check for player reaching top of canvas and winning the game
+   
     if (this.y < 0) {
         this.x = 200;
         this.y = 350;
@@ -94,7 +92,6 @@ Player.prototype.handleInput = function(keyPress) {
 // Place the player object in a variable called player
 var allEnemies = [];
 
-// Position "y" where the enemies will are created
 var enemyPosition = [80, 160, 220];
 var player = new Player(200, 350, 40);
 var enemy;
