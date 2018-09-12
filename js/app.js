@@ -8,7 +8,7 @@ var Enemy = function(x, y, movement) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-  }
+  };
 
   // Update the enemy's position, required method for game
   // Parameter: dt, a time delta between ticks
@@ -22,7 +22,7 @@ var Enemy = function(x, y, movement) {
     if (this.x > 600) {
       this.x = -100;
       this.movement = 100 + Math.floor(Math.random() * 520);
-    }
+    };
 
     // check for the collisions
     if (player.x < this.x + 60 && player.x + 37 > this.x && player.y < this.y + 25 && 30 + player.y > this.y) {
@@ -34,7 +34,7 @@ var Enemy = function(x, y, movement) {
   Enemy.prototype.render = function(){
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
   };
-}
+};
 
 
 
@@ -83,7 +83,7 @@ var Player = function(x, y, movement) {
         break;
     }
   };
-}
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
