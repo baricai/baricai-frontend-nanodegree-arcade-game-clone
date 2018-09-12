@@ -13,7 +13,7 @@ var Enemy = function(x, y, movement) {
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
-Enemy.prototype.update = function(dt) {
+  update(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
@@ -36,7 +36,7 @@ Enemy.prototype.update = function(dt) {
 };
 
 // Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
+render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
@@ -50,7 +50,7 @@ var Player = function(x, y, movement) {
     this.sprite = 'images/char-boy.png';
 };
 
-Player.prototype.update = function() {
+update() {
     // Prevent player from moving beyond canvas wall boundaries
     if (this.y > 380) {
         this.y = 380;
@@ -70,12 +70,11 @@ Player.prototype.update = function() {
         this.y = 380;
     }
 };
-
-Player.prototype.render = function() {
+render() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput = function(keyPress) {
+handleInput(keyPress) {
     switch (keyPress) {
         case 'left':
             this.x -= this.speed + 50;
