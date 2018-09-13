@@ -19,15 +19,15 @@ Enemy.prototype.update = function(dt) {
     // all computers.
     this.x += this.movement * dt;
 
-    if (this.x > 600) {
-        this.x = -200;
-        this.speed = 200 + Math.floor(Math.random() * 509);
+    if (this.x > 550) {
+        this.x = -100;
+        this.speed = 100 + Math.floor(Math.random() * 509);
     }
 
     // collision player and enemies
     if (player.x < this.x + 60 && player.x + 37 > this.x && player.y < this.y + 25 && 30 + player.y > this.y) {
         player.x = 200;
-        player.y = 390;
+        player.y = 380;
     }
 };
 
@@ -48,7 +48,7 @@ var Player = function(x, y, movement) {
 
 Player.prototype.update = function() {
    
-    if (this.y > 350) {
+    if (this.y > 380) {
         this.y = 350;
     }
 
@@ -62,7 +62,7 @@ Player.prototype.update = function() {
    
     if (this.y < 0) {
         this.x = 200;
-        this.y = 350;
+        this.y = 380;
     }
 };
 
@@ -93,7 +93,7 @@ Player.prototype.handleInput = function(keyPress) {
 var allEnemies = [];
 
 var enemyPosition = [60, 140, 220];
-var player = new Player(200, 350, 50);
+var player = new Player(200, 380, 50);
 var enemy;
 
 enemyPosition.forEach(function(posY) {
