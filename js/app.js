@@ -92,12 +92,12 @@ Player.prototype.handleInput = function(keyPress) {
 // Place the player object in a variable called player
 var allEnemies = [];
 
-var enemyPosition = [80, 160, 220];
-var player = new Player(200, 350, 40);
+var enemyPosition = [55, 145, 220];
+var player = new Player(200, 350, 50);
 var enemy;
 
 enemyPosition.forEach(function(posY) {
-    enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 531));
+    enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 519));
     allEnemies.push(enemy);
 });
 
