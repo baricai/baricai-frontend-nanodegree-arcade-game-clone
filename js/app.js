@@ -27,7 +27,7 @@ Enemy.prototype.update = function(dt) {
     // collision player and enemies
     if (player.x < this.x + 60 && player.x + 37 > this.x && player.y < this.y + 25 && 30 + player.y > this.y) {
         player.x = 200;
-        player.y = 350;
+        player.y = 390;
     }
 };
 
@@ -93,7 +93,7 @@ Player.prototype.handleInput = function(keyPress) {
 var allEnemies = [];
 
 var enemyPosition = [60, 140, 220];
-var player = new Player(200, 400, 50);
+var player = new Player(200, 350, 50);
 var enemy;
 
 enemyPosition.forEach(function(posY) {
