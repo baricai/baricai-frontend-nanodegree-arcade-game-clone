@@ -97,7 +97,7 @@ var player = new Player(200, 380, 50);
 var enemy;
 
 enemyPosition.forEach(function(posY) {
-    enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 519));
+    enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 509));
     allEnemies.push(enemy);
 });
 
