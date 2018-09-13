@@ -21,7 +21,7 @@ Enemy.prototype.update = function(dt) {
 
     if (this.x > 520) {
         this.x = -50;
-        this.speed = 100 + Math.floor(Math.random() * 236);
+        this.movement = 100 + Math.floor(Math.random() * 236);
     }
 
     // collision player and enemies
