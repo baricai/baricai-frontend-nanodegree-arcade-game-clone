@@ -72,16 +72,16 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(keyPress) {
     switch (keyPress) {
         case 'left':
-            this.x -= this.speed + 50;
+            this.x -= this.movement + 50;
             break;
         case 'up':
-            this.y -= this.speed + 30;
+            this.y -= this.movement + 30;
             break;
         case 'right':
-            this.x += this.speed + 50;
+            this.x += this.movement + 50;
             break;
         case 'down':
-            this.y += this.speed + 30;
+            this.y += this.movement + 30;
             break;
     }
 };
