@@ -73,16 +73,16 @@ Player.prototype.render = function() {
 Player.prototype.handleInput = function(keyPress) {
     switch (keyPress) {
         case 'left':
-            this.x -= this.speed + 40;
+            this.x -= this.speed + 50;
             break;
         case 'up':
-            this.y -= this.speed + 20;
+            this.y -= this.speed + 30;
             break;
         case 'right':
-            this.x += this.speed + 40;
+            this.x += this.speed + 50;
             break;
         case 'down':
-            this.y += this.speed + 20;
+            this.y += this.speed + 30;
             break;
     }
 };
@@ -92,7 +92,7 @@ Player.prototype.handleInput = function(keyPress) {
 // Place the player object in a variable called player
 var allEnemies = [];
 
-var enemyPosition = [55, 145, 220];
+var enemyPosition = [60, 140, 220];
 var player = new Player(200, 350, 50);
 var enemy;
 
