@@ -47,7 +47,7 @@ var Player = function(x, y) {
 };
 
 Player.prototype.update = function() {
-   
+   //this stops the player from moving out of wall boundaries
     if (this.y > 390) {
         this.y = 390;
     }
@@ -59,7 +59,7 @@ Player.prototype.update = function() {
     if (this.x < 0) {
         this.x = 0;
     }
-   
+   //when player reaches top of canvas and wins the game
     if (this.y < 0) {
         this.x = 210;
         this.y = 410;
@@ -92,6 +92,7 @@ Player.prototype.handleInput = function(keyPress) {
 // Place the player object in a variable called player
 var allEnemies = [];
 
+//position of the enemies
 var enemyPosition = [75, 120, 210];
 var player = new Player(210, 410);
 var enemy;
