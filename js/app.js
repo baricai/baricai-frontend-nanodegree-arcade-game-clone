@@ -18,7 +18,7 @@ Enemy.prototype.update = function(dt) {
     // which will ensure the game runs at the same speed for
     // all computers.
     this.x += this.movement * dt;
-
+    //resets position from enemy to move from left to right
     if (this.x > 520) {
         this.x = -50;
         this.movement = 100 + Math.floor(Math.random() * 236);
