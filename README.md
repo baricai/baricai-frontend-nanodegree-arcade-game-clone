@@ -2,7 +2,7 @@ frontend-nanodegree-arcade-game
 ===============================
 https://baricai.github.io/baricai-frontend-nanodegree-arcade-game-clone/
 
-Variables are set for enemie (the bugs) and the player, it uses a 2 dimensional table, which is x, ,y followed by the movement of each.
+Variables are set for enemies (the bugs) and the player, it uses a 2 dimensional table, which is x, ,y followed by the movement of each.
 
 The bugs have random speed everytime the game refreshes and they fadeaway as soon as they approach the end of the canvas moving in only left-right direction.
 
