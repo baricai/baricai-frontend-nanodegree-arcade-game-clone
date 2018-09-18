@@ -4,7 +4,7 @@ var Enemy = function(x, y, speed) {
     // we've provided one for you to get started
     this.x = x;
     this.y = y;
-    this.speed = Math.floor((Math.random()* 8) + 3);
+    this.speed = Math.floor((Math.random()* 9) + 2);
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -26,7 +26,7 @@ Enemy.prototype.update = function(dt) {
 
 
     // collision player and enemies
-    if (player.x < this.x + 90 && player.x + 90 > this.x && player.y < this.y + 50 && 50 + player.y > this.y) {
+    if (player.x < this.x + 70 && player.x + 80 > this.x && player.y < this.y + 40 && 30 + player.y > this.y) {
         player.x = 230;
         player.y = 425;
     }
@@ -90,7 +90,7 @@ var allEnemies = [];
 
 //position of the enemies
 var enemyPosition = [85, 120, 215];
-var player = new Player(200, 300);
+var player = new Player(230, 425);
 var enemy;
 
 enemyPosition.forEach(function(posY) {
