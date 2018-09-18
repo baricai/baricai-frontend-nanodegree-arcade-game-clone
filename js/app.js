@@ -26,7 +26,7 @@ Enemy.prototype.update = function(dt) {
 
 
     // collision player and enemies
-    if (player.x < this.x + 70 && player.x + 80 > this.x && player.y < this.y + 60 && 50 + player.y > this.y) {
+    if (player.x < this.x + 65 && player.x + 70 > this.x && player.y < this.y + 60 && 50 + player.y > this.y) {
         player.x = 230;
         player.y = 425;
     }
