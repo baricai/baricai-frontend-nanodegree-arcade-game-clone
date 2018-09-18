@@ -1,6 +1,6 @@
 frontend-nanodegree-arcade-game
 ===============================
-https://baricai.github.io/frontend-nanodegree-arcade-game/
+https://baricai.github.io/baricai-frontend-nanodegree-arcade-game-clone/
 
 Variables are set for enemie (the bugs) and the player, it uses a 2 dimensional table, which is x, ,y followed by the movement of each.
 
