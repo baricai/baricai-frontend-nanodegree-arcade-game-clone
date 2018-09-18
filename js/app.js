@@ -1,10 +1,10 @@
 //Enemies our player must avoid
-var Enemy = function(x, y, movement) {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = x;
     this.y = y;
-    this.movement = movement;
+    this.speed = Math.floor((Math.random()* 8) + 3);
 
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
@@ -17,17 +17,18 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
-    this.x += this.movement * dt;
+    this.x += this.speed * dt;
     //resets position from enemy to move from left to right
     if (this.x > 520) {
         this.x = -50;
-        this.movement = 100 + Math.floor(Math.random() * 236);
+    this.speed = 100 + Math.floor(Math.random() * 228);
     }
 
+
     // collision player and enemies
-    if (player.x < this.x + 60 && player.x + 37 > this.x && player.y < this.y + 25 && 30 + player.y > this.y) {
-        player.x = 210;
-        player.y = 410;
+    if (player.x < this.x + 90 && player.x + 90 > this.x && player.y < this.y + 50 && 50 + player.y > this.y) {
+        player.x = 230;
+        player.y = 425;
     }
 };
 
@@ -42,7 +43,6 @@ Enemy.prototype.render = function() {
 var Player = function(x, y) {
     this.x = x;
     this.y = y;
-    this.movement = 50;
     this.sprite = 'images/char-boy.png';
 };
 
@@ -52,7 +52,7 @@ Player.prototype.update = function() {
         this.y = 390;
     }
 
-    if (this.x > 400) {
+    if (this.x > 400) {                                                     
         this.x = 400;
     }
 
@@ -61,8 +61,8 @@ Player.prototype.update = function() {
     }
    //when player reaches top of canvas and wins the game
     if (this.y < 0) {
-        this.x = 210;
-        this.y = 410;
+        this.x = 230;
+        this.y = 425;
     }
 };
 
@@ -70,21 +70,17 @@ Player.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-Player.prototype.handleInput = function(keyPress) {
-    switch (keyPress) {
-        case 'left':
-            this.x -= this.movement + 50;
-            break;
-        case 'up':
-            this.y -= this.movement + 30;
-            break;
-        case 'right':
-            this.x += this.movement + 50;
-            break;
-        case 'down':
-            this.y += this.movement + 30;
-            break;
-    }
+//player moving the keys
+Player.prototype.handleInput = function(keyPress){
+  if(keyPress === 'left' && this.x > 0){
+    this.x -= 104;
+  } else if (keyPress === 'right' && this.x < 410) {
+    this.x += 104;
+  } else if(keyPress === 'up' && this.y > 0){
+    this.y -= 85;
+  } else if(keyPress === 'down' && this.y < 410){
+    this.y += 85;
+  }
 };
 
 // Now instantiate your objects.
@@ -93,12 +89,12 @@ Player.prototype.handleInput = function(keyPress) {
 var allEnemies = [];
 
 //position of the enemies
-var enemyPosition = [75, 120, 210];
-var player = new Player(210, 410);
+var enemyPosition = [85, 120, 215];
+var player = new Player(200, 300);
 var enemy;
 
 enemyPosition.forEach(function(posY) {
-    enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 236));
+    enemy = new Enemy(0, posY, 100 + Math.floor(Math.random() * 228));
     allEnemies.push(enemy);
 });
 
